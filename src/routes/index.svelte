@@ -66,18 +66,22 @@
 
   label {
     font-size: var(--font-size--medium);
-    padding: 0 0.5rem;
   }
 
   input {
-    border-radius: 20rem;
+    border-radius: 999px;
     background: #fafafa;
     border: 0;
     width: 12rem;
-    height: 3rem;
-    padding: 0 1rem;
+    padding: 0.5rem 1.2rem;
     font-size: var(--font-size--medium);
     margin-left: 0.5rem;
+    flex-shrink: 1;
+  }
+
+  input:focus {
+    outline-width: 5px;
+    outline-offset: -5px;
   }
 
   ul {
