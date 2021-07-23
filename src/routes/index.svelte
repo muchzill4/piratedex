@@ -20,8 +20,14 @@
   let namePrefix = '';
 
   function pirateNameStartsWith(pirateName, prefix) {
-    // TODO: should deal with surnames too
-    return pirateName.toLowerCase().startsWith(prefix.toLowerCase());
+    const sanitisedName = pirateName.toLowerCase().replaceAll(/[^\w\s]/g, '');
+    const nameComponents = sanitisedName.split(' ');
+    const onlyNames = nameComponents.filter((component) => {
+      return ['of', 'the'].indexOf(component) === -1;
+    });
+
+    const lPrefix = prefix.toLowerCase();
+    return onlyNames.some((name) => name.startsWith(lPrefix));
   }
 
   $: filteredPirates = pirates.filter((pirate) => pirateNameStartsWith(pirate.name, namePrefix));
