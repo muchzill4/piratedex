@@ -5,8 +5,8 @@ function formatPirateData(pirateData) {
   return {
     ...pirateData,
     name: pirateData.name.replace(/(\[\d\]|\(pirate\))/, ''),
-    href: pirateData.href ? `http://wikipedia.org${pirateData.href}` : null,
-  }
+    href: pirateData.href ? `http://wikipedia.org${pirateData.href}` : null
+  };
 }
 
 function extractTableData($, table) {
