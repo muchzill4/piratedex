@@ -1,29 +1,36 @@
 import * as cheerio from 'cheerio';
+import { promises as fs } from 'fs';
+
+function formatPirateData(pirateData) {
+  return {
+    ...pirateData,
+    href: pirateData.href ? `http://wikipedia.org${pirateData.href}` : null,
+  }
+}
 
 function extractTableData($, table) {
-  const rows = $(table).find('tr').slice(1);
-  const tableData = rows.toArray().map((tr) => {
-    return $(tr)
-      .children()
-      .toArray()
-      .map((cell) => {
-        return $(cell).text().trim();
-      });
-  });
-
-  return tableData
-    .filter((row) => {
-      return !row.every((text) => text === '');
-    })
-    .map((row) => {
-      return {
-        name: row[0],
-        life: row[1],
-        yearsActive: row[2],
-        countryOfOrigin: row[3],
-        comments: row[4]
-      };
+  const rows = $(table).find('tr').slice(1); /* minus header */
+  const data = [];
+  for (const tr of rows.toArray()) {
+    const cells = $(tr).children();
+    const name = cells.eq(0).text().trim();
+    if (name === '') continue; /* skip phantom rows data */
+    const href = cells.eq(0).find('a').attr('href');
+    const life = cells.eq(1).text().trim();
+    const yearsActive = cells.eq(2).text().trim();
+    const countryOfOrigin = cells.eq(3).text().trim();
+    const comments = cells.eq(4).text().trim();
+    const pirateData = formatPirateData({
+      href,
+      name,
+      life,
+      yearsActive,
+      countryOfOrigin,
+      comments
     });
+    data.push(pirateData);
+  }
+  return data;
 }
 
 async function fetchPirateDataFromWikipedia() {

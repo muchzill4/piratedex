@@ -8,7 +8,13 @@
 </script>
 
 <article class="pirate-card">
-  <h2 class="pirate-name">{pirate.name}</h2>
+  <h2 class="pirate-name">
+    {#if pirate.href}
+      <a class="pirate-link" href={pirate.href}>{pirate.name}</a>
+    {:else}
+      {pirate.name}
+    {/if}
+  </h2>
   <dl class="pirate-features">
     {#each pirateFeatures as { name, value }}
       <dt class="pirate-feature-name">{name}</dt>
@@ -26,6 +32,10 @@
     border-radius: 0.2rem;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border: 1px solid #fefefe;
+  }
+
+  .pirate-link {
+    color: #36598a;
   }
 
   .pirate-name {
