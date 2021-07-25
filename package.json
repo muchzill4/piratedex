@@ -9,6 +9,7 @@
     "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
+    "@sveltejs/adapter-netlify": "^1.0.0-next.25",
     "@sveltejs/kit": "next",
     "cheerio": "^1.0.0-rc.10",
     "eslint": "^7.22.0",

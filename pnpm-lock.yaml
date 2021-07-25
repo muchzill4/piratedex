@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@sveltejs/adapter-netlify': ^1.0.0-next.25
   '@sveltejs/kit': next
   cheerio: ^1.0.0-rc.10
   eslint: ^7.22.0
@@ -11,6 +12,7 @@ specifiers:
   svelte: ^3.34.0
 
 devDependencies:
+  '@sveltejs/adapter-netlify': 1.0.0-next.25
   '@sveltejs/kit': 1.0.0-next.137_svelte@3.39.0
   cheerio: 1.0.0-rc.10
   eslint: 7.31.0
@@ -91,6 +93,13 @@ packages:
       }
     dev: true
 
+  /@iarna/toml/2.2.5:
+    resolution:
+      {
+        integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
+      }
+    dev: true
+
   /@rollup/pluginutils/4.1.1:
     resolution:
       {
@@ -100,6 +109,16 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.0
+    dev: true
+
+  /@sveltejs/adapter-netlify/1.0.0-next.25:
+    resolution:
+      {
+        integrity: sha512-EMKPbQOPbgBH95XRSxk9huz11hszERxMJdGBsVNfvo6zweNAMQ2RBfHbla0kr/6lmEYoFWm8gW+3JvCnAm8itA==
+      }
+    dependencies:
+      '@iarna/toml': 2.2.5
+      esbuild: 0.12.15
     dev: true
 
   /@sveltejs/kit/1.0.0-next.137_svelte@3.39.0:
@@ -1239,10 +1258,10 @@ packages:
       glob: 7.1.7
     dev: true
 
-  /rollup/2.53.3:
+  /rollup/2.54.0:
     resolution:
       {
-        integrity: sha512-79QIGP5DXz5ZHYnCPi3tLz+elOQi6gudp9YINdaJdjG0Yddubo6JRFUM//qCZ0Bap/GJrsUoEBVdSOc4AkMlRA==
+        integrity: sha512-RHzvstAVwm9A751NxWIbGPFXs3zL4qe/eYg+N7WwGtIXVLy1cK64MiU37+hXeFm1jqipK6DGgMi6Z2hhPuCC3A==
       }
     engines: { node: '>=10.0.0' }
     hasBin: true
@@ -1460,7 +1479,7 @@ packages:
       esbuild: 0.12.15
       postcss: 8.3.6
       resolve: 1.20.0
-      rollup: 2.53.3
+      rollup: 2.54.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
