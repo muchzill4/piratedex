@@ -20,7 +20,7 @@
   let namePrefix = '';
 
   function pirateNameStartsWith(pirateName, prefix) {
-    const sanitisedName = pirateName.toLowerCase().replaceAll(/[^\w\s]/g, '');
+    const sanitisedName = pirateName.toLowerCase().replace(/[^\w\s]/g, '');
     const nameComponents = sanitisedName.split(' ');
     const onlyNames = nameComponents.filter((component) => {
       return ['of', 'the'].indexOf(component) === -1;
