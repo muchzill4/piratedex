@@ -3,7 +3,7 @@
    * @type {import('@sveltejs/kit').Load}
    */
   export async function load({ fetch }) {
-    const response = await fetch('/api/pirates');
+    const response = await fetch('/data/pirates.json');
     const pirates = await response.json();
     return {
       props: {
