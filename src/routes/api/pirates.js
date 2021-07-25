@@ -38,9 +38,8 @@ async function fetchPirateDataFromWikipedia() {
   const url =
     'https://en.wikipedia.org/w/api.php?action=parse&page=List_of_pirates&prop=text&formatversion=2&format=json';
 
-  // const response = await fetch(url);
-  // const data = await response.json();
-  const data = JSON.parse(await fs.readFile('src/routes/api/_data.json', 'utf8'));
+  const response = await fetch(url);
+  const data = await response.json();
 
   const $ = cheerio.load(data.parse.text);
 
