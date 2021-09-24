@@ -43,7 +43,7 @@
     <label>🔍<input bind:value={namePrefix} /></label>
   </header>
   <ul>
-    {#each filteredPirates as pirate}
+    {#each filteredPirates as pirate (pirate.name)}
       <li class="item">
         <PirateCard {pirate} />
       </li>
